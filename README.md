@@ -40,13 +40,17 @@ We will add [BTC-RPC-EXPLORER](https://github.com/janoside/btc-rpc-explorer "BTC
 
 ### 1.- Edit Samourai Dojo torrc file ###
 
-We need to edit Dojo torrc file (this file is located in /samourai-dojo-master/docker/my-dojo/tor)  to create a hidden service (v3) to connect to our explorer. Add this lines under the services:
+We need to edit Dojo torrc file (this file is located in /samourai-dojo-master/docker/my-dojo/tor)  to create a hidden service (v3) to connect to our explorer. Add these lines under the services:
 
 ```
 HiddenServiceDir /var/lib/tor/hsv3explorer
 HiddenServiceVersion 3
 HiddenServicePort 80 172.29.1.6:3002
 ```
+<p align="center">
+  <img src="img/torrc.png?raw=true" alt="torrc file"/>
+</p>
+
 
 ### 2.- Stop Dojo  ###
 ```
