@@ -1,0 +1,11 @@
+explorer:
+    image: "jochemin/dojo-explorer:latest"
+    container_name: dojo-explorer
+    restart: on-failure
+    volumes:
+      - ./.env:/workspace/.env
+    networks:
+      dmznet:
+        ipv4_address: 172.29.1.6
+      dojonet:
+        ipv4_address: 172.28.1.6
