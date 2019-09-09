@@ -18,21 +18,37 @@ We will add [BTC-RPC-EXPLORER](https://github.com/janoside/btc-rpc-explorer "BTC
                                           ------------
                                                 |
                   Host machine                  | (Tor hidden services)
-                 ______________________________ | _________________________________________________________
-                |                               |                                                          |
-                |                      -------------------                                                 |
-                |                     |   Tor Container   | - - - - - - - - - - - - - - - -                |
-                |                      -------------------                                 |               |
-                |                             |        |                                   |               |
-                |             -------------------      |                                   |               |
-                |            |  Nginx Container  |     |                     dmznet        |               |
-                |             -------------------      |                                   |               |
-                |- - - - - - - - - - - | - - - - - - - | - - - - - - - - - - - - - - - - - | - - - - - - - |
-                |     --------------------          --------------------          ------------------       |
-                |    |  Nodejs Container  | ------ | Bitcoind Container | ------ | BTC-RPC-Explorer |      |
-                |     --------------------          --------------------          ------------------       |
-                |               |                                                                          |
-                |    -------------------                                                                   |
-                |   |  MySQL Container  |                           dojonet                                |
-                |    -------------------                                                                   |
-                |__________________________________________________________________________________________|
+                 ______________________________ | ___________________________________________________________________
+                |                               |                                                                    |
+                |                      -------------------                                                           |
+                |                     |   Tor Container   | - - - - - - - - - - - - - - - -                          |
+                |                      -------------------                                 |                         |
+                |                             |        |                                   |                         |
+                |             -------------------      |                                   |                         |
+                |            |  Nginx Container  |     |                     dmznet        |                         |
+                |             -------------------      |                                   |                         |
+                |- - - - - - - - - - - | - - - - - - - | - - - - - - - - - - - - - - - - - | - - - - - - - - - - - - |
+                |     --------------------          --------------------          ----------------------------       |
+                |    |  Nodejs Container  | ------ | Bitcoind Container | ------ | BTC-RPC-Explorer Container |      |
+                |     --------------------          --------------------          ----------------------------       |
+                |               |                                                                                    |
+                |    -------------------                                                                             |
+                |   |  MySQL Container  |                           dojonet                                          |
+                |    -------------------                                                                             |
+                |____________________________________________________________________________________________________|
+
+<a name="tor"/>
+## TOR changes ##
+
+We need to edit Dojo torrc file (this file is located in /samourai-dojo-master/docker/my-dojo/tor)  to create a hidden service (v3) to connect to our explorer. Add this lines under the services:
+
+```
+HiddenServiceDir /var/lib/tor/hsv3explorer
+HiddenServiceVersion 3
+HiddenServicePort 80 172.29.1.6:3002
+```
+
+## explorer folder ##
+
+Create explorer folder in /samourai-dojo-master/docker/my-dojo 
+
