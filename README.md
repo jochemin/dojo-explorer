@@ -69,12 +69,11 @@ dojo.sh start
 
 ### 4.- Clone this repository  ###
 ```
-git clone https://github.com/jochemin/dojo-explorer
+git clone https://github.com/jochemin/dojo-explorer && cd dojo-explorer
 ```
-
 ### 5.- Edit .env file ###
 
-Enter the repository folder and edit .env file.
+Edit .env file.
 
 Insert your Bitcoin Core RPC credentials
 <p align="center">
