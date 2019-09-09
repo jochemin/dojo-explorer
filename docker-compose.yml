@@ -8,9 +8,9 @@ services:
     volumes:
       - ./.env:/workspace/.env
     networks:
-      dmznet:
+      my-dojo_dmznet:
         ipv4_address: 172.29.1.6
-      dojonet:
+      my-dojo_dojonet:
         ipv4_address: 172.28.1.6
 networks:
    my-dojo_dojonet:
