@@ -1,4 +1,5 @@
-explorer:
+services: 
+  explorer:
     image: "jochemin/dojo-explorer:latest"
     container_name: dojo-explorer
     restart: on-failure
@@ -9,3 +10,8 @@ explorer:
         ipv4_address: 172.29.1.6
       dojonet:
         ipv4_address: 172.28.1.6
+networks:
+  dojonet:
+    external: true
+  dmznet:
+    external: true
