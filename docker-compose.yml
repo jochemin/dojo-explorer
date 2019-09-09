@@ -1,3 +1,5 @@
+version: "3.2"
+
 services: 
   explorer:
     image: "jochemin/dojo-explorer:latest"
@@ -11,7 +13,7 @@ services:
       dojonet:
         ipv4_address: 172.28.1.6
 networks:
-  dojonet:
+   my-dojo_dojonet:
     external: true
-  dmznet:
+   my-dojo_dmznet:
     external: true
