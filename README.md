@@ -48,17 +48,45 @@ HiddenServiceVersion 3
 HiddenServicePort 80 172.29.1.6:3002
 ```
 
-### 2.- Clone this repository  ###
+### 2.- Stop Dojo  ###
+```
+dojo.sh stop
+```
+
+### 3.- Delete TOR image  ###
+```
+docker rmi $(docker images |grep 'samouraiwallet/dojo-tor')
+```
+
+### 4.- Start Dojo  ###
+```
+dojo.sh start
+```
+
+### 4.- Clone this repository  ###
 ```
 git clone https://github.com/jochemin/dojo-explorer
 ```
 
-### 3.- Edit .env file ###
+### 5.- Edit .env file ###
 
-Edit .env file and insert your Bitcoin Core RPC credentials
+Enter the repository folder and edit .env file.
+
+Insert your Bitcoin Core RPC credentials
 <p align="center">
   <img src="img/env_file.png?raw=true" alt=".env file"/>
 </p>
 
+Save the file
 
+### 4.- Launch the container ###
+```
+docker-compose up -d
+```
 
+### 5.- View your explorer onion address
+```
+docker exec -it tor cat /var/lib/tor/hsv3explorer/hostname
+```
+
+Now you have your own Bitcoin explorer attached to your Dojo.
