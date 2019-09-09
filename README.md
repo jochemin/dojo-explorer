@@ -47,8 +47,6 @@ HiddenServiceDir /var/lib/tor/hsv3explorer
 HiddenServiceVersion 3
 HiddenServicePort 80 172.29.1.6:3002
 ```
-
+<a name="explorer"/>
 ## explorer folder ##
-
-Create explorer folder in /samourai-dojo-master/docker/my-dojo 
 
