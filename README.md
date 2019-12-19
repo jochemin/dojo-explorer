@@ -93,10 +93,3 @@ docker exec -it tor cat /var/lib/tor/hsv3explorer/hostname
 ```
 
 Now you have your own Bitcoin explorer attached to your Dojo.
-
-Here is my paynym feel free to invite me a beer.
-
-<p align="center">
-  <img src="img/paynym.png?raw=true" alt="Beer!"/>
-</p>
-
